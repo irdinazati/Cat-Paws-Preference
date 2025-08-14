@@ -76,7 +76,6 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
   margin: 5px 0;
 }
 
-
 /* Cards */
 .card {
   position: absolute;
@@ -147,7 +146,7 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
   z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 50%;
   height: 100%;
   background-color: rgba(0,0,0,0.5);
   display: flex;
