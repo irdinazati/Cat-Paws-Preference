@@ -6,7 +6,8 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100dvh; /* full device viewport height */
+  overflow: hidden; /* prevent scrolling */
 }
 
 /* ===== Header & Footer ===== */
@@ -16,6 +17,7 @@ header, footer {
   color: white;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   z-index: 10;
+  flex-shrink: 0; /* prevent shrinking */
 }
 
 header h1 {
@@ -28,33 +30,34 @@ footer p {
   margin: 0;
 }
 
-/* ===== Card Container ===== */
-#card-container {
-  position: relative;
-  width: 90%;
-  max-width: 400px;
-  height: 70vh;
-  margin: 0 auto;
-}
-
 /* ===== Main Content ===== */
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;   /* center horizontally */
-  justify-content: center; /* center vertically */
-  position: relative;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
+  min-height: 0; /* fix Safari flexbox issue */
+  overflow: hidden; /* prevent main content scrolling */
+}
+
+/* ===== Card Container ===== */
+#card-container {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  height: 60dvh; /* adjust for mobile viewport */
+  margin: 0 auto;
 }
 
 /* ===== Instructions Banner ===== */
 #instructions {
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 12px 20px;
   width: 90%;
   max-width: 400px;
-background: linear-gradient(90deg, #c290a9, #c290a9);
+  background: linear-gradient(90deg, #c290a9, #c290a9);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   color: #f6f6f6;
@@ -62,7 +65,7 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  align-items: center;   /* center text horizontally */
+  align-items: center;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -76,7 +79,7 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
   margin: 5px 0;
 }
 
-/* Cards */
+/* ===== Cards ===== */
 .card {
   position: absolute;
   width: 100%;
@@ -102,7 +105,7 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 50rem;
+  font-size: 8rem; /* smaller than before but still big */
   font-weight: bold;
   padding: 10px 20px;
   border-radius: 80%;
@@ -152,22 +155,19 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: auto; /* allows internal scrolling if content too big */
+  overflow: hidden; /* prevent popup scrolling */
 }
 
 .popup-content {
   background-color: #fff;
   padding: 20px 30px;
   border-radius: 15px;
-  width: 60%;
-  max-width: 200px;
-  max-height: 80vh; /* limits height */
-  overflow-y: auto; /* makes content scroll inside popup if too tall */
+  width: 70%;
+  max-width: 250px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  overflow: hidden; /* prevent content scroll */
 }
-
-
 
 #close-popup {
   float: right;
@@ -178,16 +178,15 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
 /* ===== Responsive Adjustments ===== */
 @media (max-width: 480px) {
   #card-container {
-    height: 60vh;
+    height: 55dvh;
   }
 
   .card img {
-    height: 60vh;
+    height: 55dvh;
   }
 
   .overlay {
-    font-size: 2rem;
-    padding: 5px 10px;
+    font-size: 5rem;
   }
 
   #liked-gallery img {
