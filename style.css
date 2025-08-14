@@ -47,7 +47,7 @@ main {
   position: relative;
   width: 90%;
   max-width: 400px;
-  height: 60dvh; /* adjust for mobile viewport */
+  height: 40dvh; /* adjust for mobile viewport */
   margin: 0 auto;
 }
 
