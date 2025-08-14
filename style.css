@@ -1,3 +1,9 @@
+/* ===== Global Scroll Lock ===== */
+html, body {
+  height: 100%;
+  overflow: hidden; /* lock scrolling completely */
+}
+
 /* ===== Body & Layout ===== */
 body {
   font-family: Arial, sans-serif;
@@ -7,7 +13,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100dvh; /* full device viewport height */
-  overflow: hidden; /* prevent scrolling */
 }
 
 /* ===== Header & Footer ===== */
@@ -39,7 +44,6 @@ main {
   justify-content: center;
   padding: 10px;
   min-height: 0; /* fix Safari flexbox issue */
-  overflow: hidden; /* prevent main content scrolling */
 }
 
 /* ===== Card Container ===== */
@@ -155,7 +159,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* prevent popup scrolling */
 }
 
 .popup-content {
@@ -166,7 +169,8 @@ main {
   max-width: 250px;
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  overflow: hidden; /* prevent content scroll */
+  max-height: 90vh; /* keep inside screen */
+  overflow: hidden; /* no scroll inside */
 }
 
 #close-popup {
