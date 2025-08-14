@@ -142,30 +142,32 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
 
 /* ===== Popup Modal ===== */
 .popup {
-  display: none; /* hidden by default */
-  position: absolute; /* relative to parent (main) */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* center in both axes */
+  display: none;
+  position: fixed;
   z-index: 1000;
+  left: 0;
+  top: 0;
   width: 100%;
-  max-width: 400px;
-  padding: 0; /* padding inside .popup-content */
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto; /* allows internal scrolling if content too big */
 }
 
-/* ===== Popup Content ===== */
 .popup-content {
   background-color: #fff;
-  padding: 30px;
+  padding: 20px 30px;
   border-radius: 15px;
   width: 90%;
+  max-width: 400px;
+  max-height: 80vh; /* limits height */
+  overflow-y: auto; /* makes content scroll inside popup if too tall */
   text-align: center;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
+
 
 
 #close-popup {
