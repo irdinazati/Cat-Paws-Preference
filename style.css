@@ -159,7 +159,7 @@ background: linear-gradient(90deg, #c290a9, #c290a9);
   background-color: #fff;
   padding: 20px 30px;
   border-radius: 15px;
-  width: 50%;
+  width: 60%;
   max-width: 200px;
   max-height: 80vh; /* limits height */
   overflow-y: auto; /* makes content scroll inside popup if too tall */
