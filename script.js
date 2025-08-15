@@ -184,7 +184,7 @@ function showPopup() {
   if (likedCats.length === 0) {
     popupContent.innerHTML = `
       <span id="close-popup">&times;</span>
-      <h2>You liked 0 cats 😿</h2>
+      <h2>You liked 0 cat 😿</h2>
       <p>Try swiping some cats next time!</p>
     `;
   } else {
