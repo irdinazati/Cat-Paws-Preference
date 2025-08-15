@@ -168,12 +168,10 @@ main {
   border-radius: 15px;
   width: 70%;
   max-width: 250px;
-  max-height: 80vh;
-  overflow-y: auto; 
+  max-height: 90vh; /* keep inside screen */
+  overflow-y: auto; /* scroll if content too tall */
   text-align: center;
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  max-height: 90vh; /* keep inside screen */
-  overflow: hidden; /* no scroll inside */
 }
 
 #close-popup {

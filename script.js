@@ -161,17 +161,53 @@ function updateGallery() {
     .join("");
 }
 
-// Show popup and auto-reset
-function showPopup() {
-  popup.style.display = "flex"; // make sure it's flex for centering
-  // Remove auto-reset
-}
+// // Show popup and auto-reset
+// function showPopup() {
+//   popup.style.display = "flex"; // make sure it's flex for centering
+//   // Remove auto-reset
+// }
 
 // Close popup manually
 closePopup.onclick = () => {
   popup.style.display = "none";
   initApp(); // reset only when user clicks close
 };
+
+// Show popup
+function showPopup() {
+  popup.style.display = "flex"; // make sure it's flex for centering
+
+  // Update popup content
+  const popupContent = document.querySelector(".popup-content");
+  if (!popupContent) return;
+
+  if (likedCats.length === 0) {
+    popupContent.innerHTML = `
+      <span id="close-popup">&times;</span>
+      <h2>You liked 0 cats 😿</h2>
+      <p>Try swiping some cats next time!</p>
+    `;
+  } else {
+    popupContent.innerHTML = `
+      <span id="close-popup">&times;</span>
+      <h2>You liked ${likedCats.length} cat${likedCats.length > 1 ? 's' : ''} ❤️</h2>
+      <div id="liked-gallery"></div>
+    `;
+    // Update the liked gallery inside popup
+    const popupGallery = popupContent.querySelector("#liked-gallery");
+    popupGallery.innerHTML = likedCats
+      .map(src => `<img src="${src}" alt="Cat" style="width:100px; margin:5px; border-radius:10px;">`)
+      .join("");
+  }
+
+  // Re-attach close button listener
+  const closeBtn = popupContent.querySelector("#close-popup");
+  closeBtn.onclick = () => {
+    popup.style.display = "none";
+    initApp(); // reset when user clicks close
+  };
+}
+
 
 
 // Start app
